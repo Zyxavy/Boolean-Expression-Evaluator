@@ -5,7 +5,7 @@
 #include <stack>
 
 //helper functions
-int precedence(OpType op);
-bool isRightAssociative(OpType op);
+//int precedence(OpType op);
+//bool isRightAssociative(OpType op);
 
 std::vector<Token> toPostfix(const std::vector<Token> &tokens); //converts infix tokens to postfix notation using the Shunting Yard algorithm
