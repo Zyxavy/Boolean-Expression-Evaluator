@@ -4,8 +4,8 @@
 #include <string>
 #include <cctype>
 
-enum class TokenType {VAR, OP, LPAREN, RPAREN};
-enum class OpType {NOT, AND, OR, XOR, NONE};
+enum class TokenType {VAR, OP, LPAREN, RPAREN}; //variable, operator, left parenthesis, right parenthesis
+enum class OpType {NOT, AND, OR, XOR, NONE}; 
 
 struct Token 
 {
