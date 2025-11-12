@@ -10,7 +10,11 @@ std::vector<Token> tokenize(const std::string &expression)
     {
         char c = expression[i];
 
-        if(std::isspace(c)) ++i; continue; //skip whitespace
+        if(std::isspace(c)) //skip whitespace
+        {
+            ++i; 
+            continue; 
+        }
 
 
         //Check if Operators or Parenthesis

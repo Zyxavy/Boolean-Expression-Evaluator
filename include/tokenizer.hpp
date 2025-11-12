@@ -14,4 +14,4 @@ struct Token
     OpType op{}; //if type is OP
 };
 
-std::vector<Token> Tokenize(const std::string &expression);
+std::vector<Token> tokenize(const std::string &expression);
