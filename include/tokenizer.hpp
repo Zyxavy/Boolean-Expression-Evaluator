@@ -2,6 +2,7 @@
 
 #include <vector>
 #include <string>
+#include <cctype>
 
 enum class TokenType {VAR, OP, LPAREN, RPAREN};
 enum class OpType {NOT, AND, OR, XOR, NONE};
@@ -13,4 +14,4 @@ struct Token
     OpType op{}; //if type is OP
 };
 
-std::vector<Token> Tokenize(const std::string& expression);
+std::vector<Token> Tokenize(const std::string &expression);
