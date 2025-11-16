@@ -2,5 +2,5 @@
 
 int main() 
 {
-    printTruthTable("!(!A || B) && C ^ D");
+    printTruthTable("A || B");
 }

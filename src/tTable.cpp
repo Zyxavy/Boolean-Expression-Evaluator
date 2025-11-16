@@ -36,7 +36,7 @@ void printTruthTable(const std::string &expression)
         int k = 0;
         for(char v : vars) row[v] = (i >>k++) & 1;
 
-        for(char v : vars) std::cout << row[v] << ' ';
+        for (char v : vars) std::cout << (row[v] ? '1' : '0') << ' ';
         std::cout << "| " << std::boolalpha << evaluate(postfix, row) << '\n';
     } 
 }
