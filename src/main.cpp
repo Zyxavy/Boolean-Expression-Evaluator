@@ -1,9 +1,6 @@
-#include "tokenizer.hpp"
-#include "parser.hpp"
-#include "evaluator.hpp"
-#include <iostream>
-#include <string>
+#include "tTable.hpp"
 
-int main() {
-
+int main() 
+{
+    printTruthTable("!(!A || B) && C ^ D");
 }
