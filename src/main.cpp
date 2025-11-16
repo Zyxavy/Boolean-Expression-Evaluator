@@ -1,4 +1,4 @@
-#include "raylib.h"
+#include <layout.hpp>
 
 int main()
 {
@@ -7,11 +7,13 @@ int main()
 
     while (!WindowShouldClose())
     {
-        BeginDrawing();
-        ClearBackground(RAYWHITE);
-        DrawText("Boolean Expression Evaluator",10,10,20,DARKGRAY);
-        EndDrawing();
+        if(IsKeyPressed(KEY_BACK > KEY_F12)) {handleInputs();}
+
+
+        //Draw
+        mainLayout();
     }
     CloseWindow();
+
     return 0;
 }

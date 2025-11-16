@@ -9,11 +9,12 @@ BUILD_DIR := build
 TARGET := $(BUILD_DIR)/logic_calculator.exe
 
 # All .cpp files that should be compiled
-SOURCES := $(SRC_DIR)/main.cpp \
-           $(SRC_DIR)/tokenizer.cpp \
-           $(SRC_DIR)/parser.cpp \
+SOURCES :=	$(SRC_DIR)/main.cpp \
+        	$(SRC_DIR)/tokenizer.cpp \
+        	$(SRC_DIR)/parser.cpp \
 			$(SRC_DIR)/evaluator.cpp \
 			$(SRC_DIR)/tTable.cpp \
+			$(SRC_DIR)/layout.cpp \
            
 
 all: $(TARGET)
