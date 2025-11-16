@@ -1,4 +1,4 @@
-#include <layout.hpp>
+#include "layout.hpp"
 
 int main()
 {
@@ -7,13 +7,15 @@ int main()
 
     while (!WindowShouldClose())
     {
-        if(IsKeyPressed(KEY_BACK > KEY_F12)) {handleInputs();}
-
-
+        BeginDrawing(); 
+        handleTyping();
+        
         //Draw
-        mainLayout();
+        mainLayout();  
     }
     CloseWindow();
 
     return 0;
 }
+
+

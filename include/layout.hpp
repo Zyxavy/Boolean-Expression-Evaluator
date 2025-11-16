@@ -14,4 +14,4 @@ extern Rectangle exitButton;
 extern Rectangle confirmButton;
 
 void mainLayout();
-void handleInputs();
+void handleTyping();
