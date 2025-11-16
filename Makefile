@@ -1,6 +1,6 @@
 CXX      := g++
 CXXFLAGS := -std=c++17 -Wall -Wextra -Iinclude
-SOURCES  := src/tokenizer.cpp  src/parser.cpp src/main.cpp
+SOURCES  := src/tokenizer.cpp  src/parser.cpp  src/evaluator.cpp src/main.cpp
 TARGET   := tokenizer_test
 
 $(TARGET): $(SOURCES)
