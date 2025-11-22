@@ -14,7 +14,7 @@ SOURCES :=	$(SRC_DIR)/main.cpp \
         	$(SRC_DIR)/parser.cpp \
 			$(SRC_DIR)/evaluator.cpp \
 			$(SRC_DIR)/tTable.cpp \
-			$(SRC_DIR)/layout.cpp \
+			$(SRC_DIR)/rayFunctions.cpp \
            
 
 all: $(TARGET)
