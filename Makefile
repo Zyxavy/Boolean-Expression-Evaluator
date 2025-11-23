@@ -32,6 +32,7 @@ run: $(TARGET)
 	$(TARGET)
 
 debug:
+	CXXFLAGS += -g -O0
 	@echo SOURCES: $(SOURCES)
 	@echo TARGET: $(TARGET)
 

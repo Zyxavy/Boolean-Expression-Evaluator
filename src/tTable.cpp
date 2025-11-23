@@ -3,6 +3,8 @@
 #include "parser.hpp"
 #include "evaluator.hpp"
 
+//This is for CLI only 
+
 void printTruthTable(const std::string &expression)
 {
     //Tokenize and parse the expression
