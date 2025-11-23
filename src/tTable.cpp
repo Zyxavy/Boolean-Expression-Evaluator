@@ -3,7 +3,7 @@
 #include "parser.hpp"
 #include "evaluator.hpp"
 
-//This is for CLI only 
+//This is for CLI only
 
 void printTruthTable(const std::string &expression)
 {
@@ -27,7 +27,7 @@ void printTruthTable(const std::string &expression)
 
 
     for(char v : vars) std::cout << v << ' ';
-    std::cout << "| " << expression << '\n';
+    std::cout << " | " << expression << '\n';
 
     for(std::size_t i = 0; i < n*2 + 2 + expression.size(); i++) std::cout << '-';
     std::cout << '\n';
@@ -39,6 +39,12 @@ void printTruthTable(const std::string &expression)
         for(char v : vars) row[v] = (i >>k++) & 1;
 
         for (char v : vars) std::cout << (row[v] ? '1' : '0') << ' ';
-        std::cout << "| " << std::boolalpha << evaluate(postfix, row) << '\n';
+        std::cout << " | " << std::boolalpha << evaluate(postfix, row) << '\n';
     } 
+
+    std::cout << "\nSummary:\n";
+    std::cout << "Variables: ";
+    for (char v : vars) std::cout << v << " ";
+    std::cout << "\nTotal combinations: " << (1 << n) << "\n";
+
 }

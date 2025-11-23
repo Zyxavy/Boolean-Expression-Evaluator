@@ -1,39 +1,60 @@
 # Compiler and flags
 CXX := g++
 CXXFLAGS := -Wall -Wextra -std=c++17 -Iinclude -Ilib
-LDFLAGS := -Llib/ -lraylib -lopengl32 -lgdi32 -lwinmm -mwindows
+GUI_LDFLAGS := -Llib/ -lraylib -lopengl32 -lgdi32 -lwinmm -mwindows
+CLI_LDFLAGS :=
 
 # Directories
 SRC_DIR := src
 BUILD_DIR := build
-TARGET := $(BUILD_DIR)/logic_calculator.exe
+GUI_TARGET := $(BUILD_DIR)/logic_calculator.exe
+CLI_TARGET := $(BUILD_DIR)/logic_calculator_cli.exe
 
-# All .cpp files that should be compiled
-SOURCES :=	$(SRC_DIR)/main.cpp \
-        	$(SRC_DIR)/tokenizer.cpp \
-        	$(SRC_DIR)/parser.cpp \
-			$(SRC_DIR)/evaluator.cpp \
-			$(SRC_DIR)/tTable.cpp \
-			$(SRC_DIR)/rayFunctions.cpp \
-           
+# Source files
+GUI_SOURCES := $(SRC_DIR)/gui_main.cpp \
+               $(SRC_DIR)/tokenizer.cpp \
+               $(SRC_DIR)/parser.cpp \
+               $(SRC_DIR)/evaluator.cpp \
+               $(SRC_DIR)/tTable.cpp \
+               $(SRC_DIR)/rayFunctions.cpp
 
-all: $(TARGET)
+CLI_SOURCES := $(SRC_DIR)/cli_main.cpp \
+               $(SRC_DIR)/tokenizer.cpp \
+               $(SRC_DIR)/parser.cpp \
+               $(SRC_DIR)/evaluator.cpp \
+               $(SRC_DIR)/tTable.cpp
 
-$(TARGET): $(SOURCES)
+# Default target (GUI version)
+all: $(GUI_TARGET)
+
+# GUI version
+$(GUI_TARGET): $(GUI_SOURCES)
 	@if not exist $(BUILD_DIR) mkdir $(BUILD_DIR)
-	$(CXX) $(CXXFLAGS) $(SOURCES) $(LDFLAGS) -o $@
+	$(CXX) $(CXXFLAGS) $(GUI_SOURCES) $(GUI_LDFLAGS) -o $@
+
+# CLI version
+cli: $(CLI_TARGET)
+
+$(CLI_TARGET): $(CLI_SOURCES)
+	@if not exist $(BUILD_DIR) mkdir $(BUILD_DIR)
+	$(CXX) $(CXXFLAGS) $(CLI_SOURCES) $(CLI_LDFLAGS) -o $@
 
 clean:
 	@if exist $(BUILD_DIR) rmdir /s /q $(BUILD_DIR)
 
 rebuild: clean all
 
-run: $(TARGET)
-	$(TARGET)
+run: $(GUI_TARGET)
+	$(GUI_TARGET)
+
+run-cli: $(CLI_TARGET)
+	$(CLI_TARGET)
 
 debug:
-	CXXFLAGS += -g -O0
-	@echo SOURCES: $(SOURCES)
-	@echo TARGET: $(TARGET)
+	$(CXXFLAGS) += -g -O0
+	@echo GUI_SOURCES: $(GUI_SOURCES)
+	@echo CLI_SOURCES: $(CLI_SOURCES)
+	@echo GUI_TARGET: $(GUI_TARGET)
+	@echo CLI_TARGET: $(CLI_TARGET)
 
-.PHONY: all clean rebuild run debug
+.PHONY: all cli clean rebuild run run-cli debug
